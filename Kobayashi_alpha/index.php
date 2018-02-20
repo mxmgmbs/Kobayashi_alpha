@@ -35,14 +35,22 @@
 			break;	
 			
 			case 2 :
-				include ("vue/vueSeConnecter.php");
+				include ("vue/vueInsert.php");
 				if(isset($_POST['valider']))
 				{
+					print("nom : ". $_POST['nom']."<br>");
+					print("email : ". $_POST['email']."<br>");
+					print("date de naissance : ". $_POST['dateNaiss']."<br>");
+					print("mot de passe : ". $_POST['mdp']."<br>");
+					print("verif mdp : ". $_POST['mdp2']."<br>");
+
 					//instanciation de la classe Eleve
-					$unEleve = new Eleve();
+					$unUser = new User();
 					//renseigner les attributs 
-					$unEleve->renseigner($_POST);
-					$unControleur->insert($unEleve);
+					$unUser->renseigner($_POST);
+
+					//jusque la ok
+					$unControleur->insert($unUser);
 					echo "<h3><br> Insertion reussie <br></center></h3>";					
 				}			
 			break;

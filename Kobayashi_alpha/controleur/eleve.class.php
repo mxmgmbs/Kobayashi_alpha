@@ -1,31 +1,36 @@
 <?php 
 
-	class Eleve 
+	class User 
 	{
-			private $nom, $prenom, $age, $classe;
+			private $nom, $email, $password, $pays, $dateNaiss, $dateInscription;
 			
-			public function __constrcut ()
+			public function __construct ()
 			{
 				$this->nom = "";
-				$this->prenom = "";
-				$this->classe = "";
-				$this->age = "0";		
+				$this->email = "";
+				$this->pays = "";
+				$this->dateNaiss = "";
+				$this->password = "";
+				$this->dateInscription = "";	
 			}
 			public function renseigner ($tab)
 			{
 				$this->nom = $tab['nom'];
-				$this->prenom = $tab['prenom'];
-				$this->classe = $tab['classe'];
-				$this->age = $tab['age'];				
+				$this->email = $tab['email'];
+				$this->pays = $tab['pays'];
+				$this->password = $tab['password'];		
+				$this->dateNaiss = $tab['dateNaiss'];			
 			}
 			
 			public function serialiser ()
 			{
 				$tab = array (
-					"nom" => $this->nom,
-					"prenom" => $this->prenom,
-					"classe" => $this->classe,
-					"age" => $this->age
+					"usrNom" => $this->nom,
+					"usrEmail" => $this->email,
+					"usrPays" => $this->pays,
+					"usrDateNaissance" => $this->dateNaiss,
+					"usrPassword" => $this->password,
+					"usrDateInscription" => "curdate()"
 				);
 			return $tab;
 			}
@@ -35,9 +40,9 @@
 				return "
 				<tr>
 				<td>".$this->nom."</td>
-				<td>".$this->prenom."</td>
-				<td>".$this->classe."</td>
-				<td>".$this->age."</td>
+				<td>".$this->email."</td>
+				<td>".$this->pays."</td>
+				<td>".$this->password."</td>
 				</tr>";
 			}
 			
@@ -53,34 +58,34 @@
 			
 			
 			
-			public function getPrenom ()
+			public function getEmail ()
 			{
-				return $this->prenom;
+				return $this->email;
 			}
-			public function setPrenom ($nom)
+			public function setEmail ($nom)
 			{
-				$this->prenom = $prenom;
-			}
-			
-			
-			
-			public function getClasse ()
-			{
-				return $this->classe;
-			}
-			public function setClasse ($nom)
-			{
-				$this->classe = $classe;
+				$this->email = $email;
 			}
 			
 			
-			public function getAge ()
+			
+			public function getPays ()
 			{
-				return $this->age;
+				return $this->pays;
 			}
-			public function setAge ($nom)
+			public function setPays ($nom)
 			{
-				$this->age = $age;
+				$this->pays = $pays;
+			}
+			
+			
+			public function getPassword ()
+			{
+				return $this->password;
+			}
+			public function setPassword ($nom)
+			{
+				$this->password = $password;
 			}
 	}
 

@@ -87,17 +87,23 @@
 			$donnees = array();
 			foreach ($tab as $cle => $valeur) 
 			{
-				$champs[] = ":".$cle; //Le premier tableau est rempli avec $cle
-				$donnees[":".$cle] = $valeur;
+				$champs[] = $cle; //Le premier tableau est rempli avec $cle
+				$target[] = ":".$cle; //deuxieme tableau est du style ":$cle" pour execute
+				$donnees[":".$cle] = $valeur; //troisieme tableau possede les values
 			}
 			
-			$chaineChamps = implode(",",$champs);
+			$chaineChamps = implode(", ",$champs);
+			$chaineDonnees = implode(", ",$target);
 			
-			$requete = "insert into ".$this->table." values (null,".$chaineChamps.");";
+			$requete = "insert into ".$this->table." (".$chaineChamps.") values (".$chaineDonnees.");";
+			echo $requete."<br>";
+
+
+
 			if ($this->pdo !=null)
 			{
 				$insert = $this->pdo->prepare($requete);
-				$insert->execute ($donnees);
+				$insert->execute ($donnees);	
 			}
 		}
 		

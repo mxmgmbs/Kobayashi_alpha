@@ -29,16 +29,17 @@
 			}
 			
 			
-			public function insert($unEleve)
+			public function insert($unUser)
 			{
 				//On  traite les données
-				if ($unEleve->getAge ()<0)
-				{
-					$unEleve->setAge(0);
-				}
+				//if ($unUser->getAge ()<0)
+				//{
+				//	$unUser->setAge(0);
+				//}
 				
-				$tab = $unClient->serialiser();
-				$this->unModele->insert ($tab);
+				$tab = $unUser->serialiser();
+
+				$this->unModele->insert($tab);
 			}
 			
 			public function supprimer ($tab) 
