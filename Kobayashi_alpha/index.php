@@ -1,4 +1,6 @@
 <?php 
+
+	session_start();
 	include ("header.php");
 	include ("controleur/controleur.php");
 	include ("controleur/eleve.class.php");
@@ -25,6 +27,7 @@
         
 
         <?php
+        print($_SESSION['id']);
 		$page = (isset($_GET['page'])) ? $_GET['page'] : 0; //Si la pge est defini dans l'url alors on prend la page sinon on prend 0
 		$unControleur = new Controleur("localhost","kobayashi_IA","root","root", "user");
 		switch ($page)

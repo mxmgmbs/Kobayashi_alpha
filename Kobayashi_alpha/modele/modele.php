@@ -95,7 +95,7 @@
 			$chaineChamps = implode(", ",$champs);
 			$chaineDonnees = implode(", ",$target);
 			
-			$requete = "insert into ".$this->table." (".$chaineChamps.") values (".$chaineDonnees.");";
+			$requete = "insert into ".$this->table." (".$chaineChamps.",usrDateInscription) values (".$chaineDonnees.",now());";
 			echo $requete."<br>";
 
 

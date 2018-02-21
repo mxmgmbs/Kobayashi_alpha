@@ -2,7 +2,7 @@
 
 	class User 
 	{
-			private $nom, $email, $password, $pays, $dateNaiss, $dateInscription;
+			private $nom, $email, $password, $pays, $dateNaiss;
 			
 			public function __construct ()
 			{
@@ -10,8 +10,7 @@
 				$this->email = "";
 				$this->pays = "";
 				$this->dateNaiss = "";
-				$this->password = "";
-				$this->dateInscription = "";	
+				$this->password = "";	
 			}
 			public function renseigner ($tab)
 			{
@@ -19,7 +18,8 @@
 				$this->email = $tab['email'];
 				$this->pays = $tab['pays'];
 				$this->password = $tab['password'];		
-				$this->dateNaiss = $tab['dateNaiss'];			
+				$this->dateNaiss = $tab['dateNaiss'];
+
 			}
 			
 			public function serialiser ()
@@ -29,8 +29,7 @@
 					"usrEmail" => $this->email,
 					"usrPays" => $this->pays,
 					"usrDateNaissance" => $this->dateNaiss,
-					"usrPassword" => $this->password,
-					"usrDateInscription" => "curdate()"
+					"usrPassword" => $this->password
 				);
 			return $tab;
 			}
