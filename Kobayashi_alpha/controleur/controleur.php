@@ -14,9 +14,9 @@
 			}
 			
 			
-			public function selectAll ()
+			public function selectAllVideos ()
 			{
-				return $this->unModele->selectAll();
+				return $this->unModele->selectAllVideos();
 			}
 			
 			
@@ -47,13 +47,13 @@
 				$this->unModele->supprimer($tab);
 			}
 			
-			public function rechercher($motcle) 
+			public function researchVideo($motcle) 
 			{
 				if (empty($motcle))
 				{
 						return null;
 				} else {
-					return $this->unModele->rechercher($motcle);
+					return $this->unModele->researchVideo($motcle);
 				}
 			}
 			public function researchUser($email,$password) 

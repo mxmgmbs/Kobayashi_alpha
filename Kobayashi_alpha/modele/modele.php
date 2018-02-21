@@ -24,7 +24,7 @@
 			$this->table = $uneTable;
 		}
 		
-		public function selectALL ()
+		public function selectAllVideos ()
 		{
 			if ($this->pdo ==null)
 			{
@@ -32,7 +32,7 @@
 
 			} else {
 			//execution de requete de selection des elves
-			$requete = "select * from user ;";
+			$requete = "select * from video order by rand() limit 0,16;";
 			$select = $this->pdo->prepare ($requete);
 			$select->execute ();
 			$resultats = $select->fetchAll();	
@@ -158,12 +158,10 @@
 		
 		
 		
-		public function rechercher ($motcle) 
+		public function researchVideo ($motcle) 
 		{
-			$requete = "select * from eleve
-						where nom like :motcle
-						or prenom like :motcle 
-						or classe like :motcle";
+			$requete = "select * from video
+						where vidNom like :motcle order by vidVues DESC" ;
 			$donnees = array (":motcle"=>'%'.$motcle.'%');
 			if ($this->pdo ==null)
 			{
