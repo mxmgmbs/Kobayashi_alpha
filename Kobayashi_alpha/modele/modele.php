@@ -176,5 +176,25 @@
 			}
 			
 		}
+		public function researchUser($email, $password) 
+		{
+			$req = $this->pdo->prepare("select * from user
+						where usrEmail = :email
+						and usrPassword = :password ;");
+
+			$req->execute(array('email' => $email, 'password' => $password));
+			$resultat = $req->fetch();
+
+			if (!$resultat)
+			{
+				print("Mauvais identifiant ou mot de passe...");
+			} else {
+				session_start();
+				$_SESSION['id'] = $resultat['usrID'];
+				$_SESSION['nom'] = $resultat['usrNom'];
+				print("Vous êtes maintenant connecté.");
+			}
+			
+		}
 	}
 ?>

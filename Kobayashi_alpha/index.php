@@ -10,11 +10,15 @@
         <center>
             <h1> Kobayashi </h1>
         <h2> version alpha </h2> </br>
+
         </br>
 
-            
-                <div><a href="index.php?page=1"> Lister les utilisateurs </a></div>
-                <div><a href="index.php?page=2"> Ajouter un utilisateurs </a></div>
+        		<div><a href="index.php?page=1"> Lister les utilisateurs </a></div>
+        		<br>
+        		<div><a href="index.php?page=2"> Inscription </a></div>
+        		<div><a href="index.php?page=5"> Connexion </a></div>
+            	<br>
+
                 <div><a href="index.php?page=3"> Rechercher utilisateur </a></div>
                 <div><a href="index.php?page=4"> Supprimer utilisateur </a></div>
         
@@ -38,11 +42,11 @@
 				include ("vue/vueInsert.php");
 				if(isset($_POST['valider']))
 				{
-					print("nom : ". $_POST['nom']."<br>");
-					print("email : ". $_POST['email']."<br>");
-					print("date de naissance : ". $_POST['dateNaiss']."<br>");
-					print("mot de passe : ". $_POST['mdp']."<br>");
-					print("verif mdp : ". $_POST['mdp2']."<br>");
+					//print("nom : ". $_POST['nom']."<br>");
+					//print("email : ". $_POST['email']."<br>");
+					//print("date de naissance : ". $_POST['dateNaiss']."<br>");
+					//print("mot de passe : ". $_POST['mdp']."<br>");
+					//print("verif mdp : ". $_POST['mdp2']."<br>");
 
 					//instanciation de la classe Eleve
 					$unUser = new User();
@@ -51,7 +55,7 @@
 
 					//jusque la ok
 					$unControleur->insert($unUser);
-					echo "<h3><br> Insertion reussie <br></center></h3>";					
+					//echo "<h3><br> Insertion reussie <br></center></h3>";					
 				}			
 			break;
 			
@@ -72,6 +76,16 @@
 					$unControleur->supprimer($tab);
 					$resultats = $unControleur->selectAll($tab);
 					include ("vue/vue.php");
+				}
+			break;
+			case 5 :
+				include ("vue/vueConnexion.php");
+				if(isset($_POST['valider']))
+				{
+					$emailCo = $_POST['email'];
+					$mdpCo = $_POST['password'];
+					//include ("vue/vue.php");
+					$unControleur->researchUser($emailCo,$mdpCo);
 				}
 			break;
 		}

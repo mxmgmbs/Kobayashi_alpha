@@ -56,6 +56,15 @@
 					return $this->unModele->rechercher($motcle);
 				}
 			}
+			public function researchUser($email,$password) 
+			{
+				if (empty($email) OR empty($password))
+				{
+						return null;
+				} else {
+					return $this->unModele->researchUser($email,$password);
+				}
+			}
 		} //fin de la classe
 				
 ?>

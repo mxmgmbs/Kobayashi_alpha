@@ -12,13 +12,13 @@
 			<input type="text" class="form-control" name="pays" placeholder="Saisir le pays">
 		
 			<br><label for="dateNaiss">Date de naissance :</label>
-			<input type="text" class="form-control" name="dateNaiss" placeholder="Saisir la date de naisse">
+			<input type="text" class="form-control" name="dateNaiss" placeholder="Saisir la date de naissance">
 
 			<br><label for="mdp">Mot de passe :</label>
-			<input type="text" class="form-control" name="password" placeholder="Saisir la date de naisse">
+			<input type="text" class="form-control" name="password" placeholder="Saisir le mot de passe">
 
 			<br><label for="mdp2">Verifiez le mot de passe :</label>
-			<input type="text" class="form-control" name="password2" placeholder="Saisir la date de naisse">
+			<input type="text" class="form-control" name="password2" placeholder="Verifiez le mot de passe">
 			<br>
 		
 		<button type="reset" class="btn btn-danger" name="annuler" value="Annuler">Annuler</button>
