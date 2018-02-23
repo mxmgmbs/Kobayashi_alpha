@@ -1,6 +1,7 @@
 <?php 
 
 	session_start();
+	ini_set('display_errors', true);
 	include ("header.php");
 	include ("controleur/controleur.php");
 	include ("controleur/eleve.class.php");
@@ -14,9 +15,11 @@
             <h1><a href="index.php">Kobayashi</a></h1>
         	<h2>version alpha</h2></br></br>
         		<?php
-        		print('<div><a href="profil.php">'.$_SESSION['nom'].'</a></div>');
+        		if(isset($_SESSION['nom'])){
+        			print('<div><a href="profil.php">'.$_SESSION['nom'].'</a></div>');
+        		}
         		
-        		if(!($_SESSION['id'])){
+        		if(!isset($_SESSION['id'])){
         			print('<div><a href="inscription.php">Inscription</a></div>');
         			print('<div><a href="connexion.php">Connexion</a></div>');	
         		} else {

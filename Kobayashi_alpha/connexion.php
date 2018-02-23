@@ -18,19 +18,24 @@
         <?php
 
         		
-
-				include ("vue/vueConnexion.php");
-				if(isset($_POST['valider']))
-				{
-					$emailCo = $_POST['email'];
-					$mdpCo = $_POST['password'];
-					//include ("vue/vue.php");
-					$unControleur->researchUser($emailCo,$mdpCo);
-					if(!$_SESSION['id']){
-						print('Problême d\'identification, veuillez réessayer');
-					} else {
-
-					}
+        		if(!isset($_SESSION['id'])){
+					include ("vue/vueConnexion.php");
+					if(isset($_POST['valider']))
+					{
+						$emailCo = $_POST['email'];
+						$mdpCo = $_POST['password'];
+						//include ("vue/vue.php");
+						$unControleur->researchUser($emailCo,$mdpCo);
+						if(!isset($_SESSION['id'])){
+							print('Problême d\'identification, veuillez réessayer');
+						} else {
+							print($_SESSION['id']);
+							print($_SESSION['nom']);
+							header('Location: index.php');
+						}
+					} 
+				} else {
+					print("vous etes deja connecté, ".($_SESSION['nom']));
 				}
 		
 	

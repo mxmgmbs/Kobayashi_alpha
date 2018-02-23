@@ -190,7 +190,7 @@
 				session_start();
 				$_SESSION['id'] = $resultat['usrID'];
 				$_SESSION['nom'] = $resultat['usrNom'];
-				print("Vous êtes maintenant connecté.");
+				print("Vous etes maintenant connecte.");
 			}
 			
 		}
