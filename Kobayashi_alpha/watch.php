@@ -4,6 +4,7 @@
 	ini_set('display_errors', true);
 	include ("header.php");
 	include ("controleur/controleur.php");
+	include ("controleur/comment.class.php");
 	include ("settings.php");
 
 ?>
@@ -34,7 +35,6 @@
 					$resultatsComments= $unControleur->selectComments($_GET['id']);
 
 					include ("vue/vueComments.php");
-					include ("vue/vueEcrireComment.php")
 
 				?> 
 

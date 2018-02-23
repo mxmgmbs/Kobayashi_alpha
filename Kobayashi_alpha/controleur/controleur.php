@@ -41,6 +41,15 @@
 
 				$this->unModele->insert($tab);
 			}
+			public function insertComment ($content, $autor, $vid)
+			{
+				//On  traite les données
+				//if ($unUser->getAge ()<0)
+				//{
+				//	$unUser->setAge(0);
+				//}
+				$this->unModele->insertComment ($content, $autor, $vid);
+			}
 			
 			public function supprimer ($tab) 
 			{

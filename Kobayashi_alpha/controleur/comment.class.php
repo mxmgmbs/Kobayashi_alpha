@@ -10,11 +10,11 @@
 				$this->auteur = "";
 				$this->videoLiee = "";
 			}
-			public function renseigner ($tab)
+			public function renseigner ($tab, $autor, $vid)
 			{
 				$this->content = $tab['content'];
-				$this->auteur = $tab['auteur'];
-				$this->videoLiee = $tab['videoLiee'];
+				$this->auteur = $autor;
+				$this->videoLiee = $vid;
 			}
 			
 			public function serialiser ()

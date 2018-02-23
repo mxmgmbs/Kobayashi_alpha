@@ -17,23 +17,26 @@
         <?php
 
         		
+        		if(!isset($_SESSION['id'])){
+					include ("vue/vueInsert.php");
+					if(isset($_POST['valider']))
+					{
+						//print("nom : ". $_POST['nom']."<br>");
+						//print("email : ". $_POST['email']."<br>");
+						//print("date de naissance : ". $_POST['dateNaiss']."<br>");
+						//print("mot de passe : ". $_POST['mdp']."<br>");
+						//print("verif mdp : ". $_POST['mdp2']."<br>");
 
-				include ("vue/vueInsert.php");
-				if(isset($_POST['valider']))
-				{
-					//print("nom : ". $_POST['nom']."<br>");
-					//print("email : ". $_POST['email']."<br>");
-					//print("date de naissance : ". $_POST['dateNaiss']."<br>");
-					//print("mot de passe : ". $_POST['mdp']."<br>");
-					//print("verif mdp : ". $_POST['mdp2']."<br>");
+						//instanciation de la classe Eleve
+						$unUser = new User();
+						//renseigner les attributs 
+						$unUser->renseigner($_POST);
 
-					//instanciation de la classe Eleve
-					$unUser = new User();
-					//renseigner les attributs 
-					$unUser->renseigner($_POST);
-
-					//jusque la ok
-					$unControleur->insert($unUser);
+						//jusque la ok
+						$unControleur->insert($unUser);
+					}
+				} else {
+					print("vous etes deja enregistré.");
 				}
 		
 	

@@ -106,6 +106,26 @@
 				echo "vous vous etes enregistre avec succes !";	
 			}
 		}
+
+		public function insertComment ($content, $autor, $vid)
+		{
+			print($content);
+			print($autor);
+			print($vid);
+			$requete = "insert into comment (comContent, comDate, comHour, comAutorID,comVideoID) values (:content,now(),now(),:autor, :vid);";
+			//print($requete);
+
+			$donnees = array (":content" => $content, ":autor" => $autor,":vid" => $vid);
+			var_dump($donnees);
+			if ($this->pdo ==null)
+			{
+				return null;
+			} else {
+				$insert = $this->pdo->prepare($requete);
+				$insert->execute($donnees);
+			}
+
+		}
 		
 		public function supprimer ($tab) {
 			$champs = array();
