@@ -11,21 +11,23 @@
 
     <body>
         <center>
-            <h1><a href="index.php"> Kobayashi </a></h1>
-        <h2> version alpha </h2> </br>
-
-        </br>
-
-
-        		<div><a href="inscription.php"> Inscription </a></div>
-        		<div><a href="connexion.php"> Connexion </a></div>
-            	<div><a href="index.php"> Accueil </a></div>
-                <div><a href="index.php?page=2"> Rechercher </a></div>
+            <h1><a href="index.php">Kobayashi</a></h1>
+        	<h2>version alpha</h2></br></br>
+        		<?php
+        		print('<div><a href="profil.php">'.$_SESSION['nom'].'</a></div>');
+        		
+        		if(!($_SESSION['id'])){
+        			print('<div><a href="inscription.php">Inscription</a></div>');
+        			print('<div><a href="connexion.php">Connexion</a></div>');	
+        		} else {
+        			print('<div><a href="deconnexion.php">Déconnexion</a></div>');
+        		}
+        		?>
+                <div><a href="index.php?page=2">Rechercher</a></div>
         
         
 
         <?php
-        print($_SESSION['id']);
 		$page = (isset($_GET['page'])) ? $_GET['page'] : 1; //Si la pge est defini dans l'url alors on prend la page sinon on prend 0
 		switch ($page)
 		{
