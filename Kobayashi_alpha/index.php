@@ -4,7 +4,7 @@
 	ini_set('display_errors', true);
 	include ("header.php");
 	include ("controleur/controleur.php");
-	include ("controleur/eleve.class.php");
+	include ("controleur/user.class.php");
 	include ("settings.php");
 
 ?>
@@ -35,19 +35,19 @@
 		switch ($page)
 		{
 			case 1 :
-				$resultats = $unControleur->selectAllVideos();
+				$resultatsVideo = $unControleur->selectAllVideos();
 				// $tab = array("nom", "age");
 				// $resultats = $unControleur->selectChamps($tab);
 				// $where = array("nom"=>"illan", "age"=>23);
 				// $resultats = $unControleur->selectWhere($tab, $where);
-				include ("vue/vue.php");
+				include ("vue/vueListe.php");
 			break;
 			case 2 :
 				include ("vue/vueRechercher.php");
 				if(isset($_POST['rechercher']))
 				{
-					$resultats = $unControleur->researchVideo($_POST['motcle']);
-					include ("vue/vue.php");
+					$resultatsVideo = $unControleur->researchVideo($_POST['motcle']);
+					include ("vue/vueListe.php");
 				}
 			break;
 		}

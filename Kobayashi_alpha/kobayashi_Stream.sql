@@ -28,10 +28,10 @@ CREATE TABLE video(
 	foreign key (vidAutorID) references user(usrID)
 );
 
-INSERT INTO video (vidNom, vidDate, vidHour,vidVues, vidAutorID)
+INSERT INTO video (vidNom, vidChemin, vidDate, vidHour,vidVues, vidAutorID)
 	VALUES
-	('Youtube : Comment passer le thème en sombre',curdate(),curtime(),'250','2'),
-	('Shell Linux : Les principes de base',curdate(),curtime(),'34230','1');
+	('Youtube : Comment passer le thème en sombre','video/video1.mp4',curdate(),curtime(),'250','2'),
+	('Shell Linux : Les principes de base','video/video2.mp4',curdate(),curtime(),'34230','1');
 
 CREATE TABLE comment(
 	comID INT PRIMARY KEY NOT NULL AUTO_INCREMENT,

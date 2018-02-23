@@ -3,7 +3,7 @@
 	session_start();
 	include ("header.php");
 	include ("controleur/controleur.php");
-	include ("controleur/eleve.class.php");
+	include ("controleur/user.class.php");
 	require ("settings.php");
 
 ?>

@@ -56,6 +56,27 @@
 					return $this->unModele->researchVideo($motcle);
 				}
 			}
+
+			public function selectVideo($motcleID) 
+			{
+				if (empty($motcleID))
+				{
+						return null;
+				} else {
+					return $this->unModele->selectVideo($motcleID);
+				}
+			}
+
+			public function selectComments($motcleID) 
+			{
+				if (empty($motcleID))
+				{
+						return null;
+				} else {
+					return $this->unModele->selectComments($motcleID);
+				}
+			}
+
 			public function researchUser($email,$password) 
 			{
 				if (empty($email) OR empty($password))

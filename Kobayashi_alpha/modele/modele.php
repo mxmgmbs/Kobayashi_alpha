@@ -96,14 +96,14 @@
 			$chaineDonnees = implode(", ",$target);
 			
 			$requete = "insert into ".$this->table." (".$chaineChamps.",usrDateInscription) values (".$chaineDonnees.",now());";
-			echo $requete."<br>";
 
 
 
 			if ($this->pdo !=null)
 			{
 				$insert = $this->pdo->prepare($requete);
-				$insert->execute ($donnees);	
+				$insert->execute ($donnees);
+				echo "vous vous etes enregistre avec succes !";	
 			}
 		}
 		
@@ -157,7 +157,38 @@
 		}
 		
 		
-		
+		public function selectVideo($motcleID){
+			$requete = "select * from video
+						where vidID like :motcleID" ;
+			$donnees = array (":motcleID"=>$motcleID);
+			if ($this->pdo ==null)
+			{
+				return null;
+			} else {
+				$select = $this->pdo->prepare($requete);
+				$select->execute($donnees);
+				$resultats = $select->fetchAll();
+				return $resultats;
+			}
+			
+		}
+
+		public function selectComments($motcleID){
+			$requete = "select * from comment
+						where comVideoID like :motcleID" ;
+			$donnees = array (":motcleID"=>$motcleID);
+			if ($this->pdo ==null)
+			{
+				return null;
+			} else {
+				$select = $this->pdo->prepare($requete);
+				$select->execute($donnees);
+				$resultats = $select->fetchAll();
+				return $resultats;
+			}
+			
+		}
+
 		public function researchVideo ($motcle) 
 		{
 			$requete = "select * from video
