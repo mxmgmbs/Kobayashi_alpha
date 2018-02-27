@@ -29,8 +29,6 @@
 						if(!isset($_SESSION['id'])){
 							print('Problême d\'identification, veuillez réessayer');
 						} else {
-							print($_SESSION['id']);
-							print($_SESSION['nom']);
 							header('Location: index.php');
 						}
 					} 

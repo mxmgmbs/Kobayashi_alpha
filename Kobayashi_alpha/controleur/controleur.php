@@ -27,12 +27,15 @@
 			public function selectWhere ($tab, $where) {
 				return $this->unModele->selectWhere($tab, $where);
 			}
-			public function uploadVideo ($nom, $id,$name) {
-				return $this->unModele-> uploadVideo($nom, $id,$name);
+			public function uploadVideo($nom,$description, $id,$name){
+				return $this->unModele-> uploadVideo($nom,$description,$id,$name);
 			}
 
 			public function afficherNomUser($id){
 				return $this->unModele->afficherNomUser($id);
+			}
+			public function recupID($id){
+				return $this->unModele->recupID($id);
 			}
 			
 			public function insert($unUser)

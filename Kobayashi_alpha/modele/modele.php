@@ -106,10 +106,10 @@
 				echo "vous vous etes enregistre avec succes !";	
 			}
 		}
-		public function uploadVideo ($nom, $id,$name) {
-				$requete = "insert into video(vidNom, vidChemin, vidDate, vidHour,vidVues, vidAutorID) values (:vidNom,:vidChemin, now(),now(),0,:vidAutorID);";
+		public function uploadVideo ($nom,$description,$id,$name) {
+				$requete = "insert into video(vidNom, vidDescription, vidChemin, vidDate, vidHour,vidVues, vidAutorID) values (:vidNom,:vidDescription,:vidChemin, now(),now(),0,:vidAutorID);";
 
-				$donnees = array (":vidNom" => $nom, ":vidChemin" => "video/".$name , ":vidAutorID" => $id);
+				$donnees = array (":vidNom" => $nom,":vidDescription" => $description, ":vidChemin" => "video/".$name , ":vidAutorID" => $id);
 				
 				?><pre><?php var_dump($donnees); ?> </pre><?php
 				if ($this->pdo ==null)
@@ -123,13 +123,9 @@
 
 		public function insertComment ($content, $autor, $vid)
 		{
-			print($content);
-			print($autor);
-			print($vid);
 			$requete = "insert into comment (comContent, comDate, comHour, comAutorID,comVideoID) values (:content,now(),now(),:autor, :vid);";
 
 			$donnees = array (":content" => $content, ":autor" => $autor,":vid" => $vid);
-			var_dump($donnees);
 			//print($requete);
 
 			if ($this->pdo ==null)
@@ -141,7 +137,25 @@
 			}
 
 		}
+
+		public function recupID ($id)
+		{
+			$requete = "select usrNom from user
+						where usrID ==  :id" ;
+			$donnees = array (":id"=>$id);
+			if ($this->pdo ==null)
+			{
+				return null;
+			} else {
+				$select = $this->pdo->prepare($requete);
+				$select->execute($donnees);
+				$resultats = $select->fetchAll();
+				return $resultats;
+			}
+		}
 		
+
+
 		public function supprimer ($tab) {
 			$champs = array();
 			$donnees = array();

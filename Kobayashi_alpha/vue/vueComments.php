@@ -32,8 +32,6 @@
 					//jusque la ok
 					
 					$unControleur->insertComment($_POST['content'] ,$_SESSION['id'], $_GET['id']);
-					header('Location: index.php');
-					sleep(1);
 				}
 			} else {
 				print("veuillez vous connecter pour poster un commentaire");

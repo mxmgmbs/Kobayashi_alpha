@@ -18,7 +18,7 @@
 						   $extension == '.mkv' 
 						){
 							move_uploaded_file(($_FILES['monfichier']['tmp_name']), 'video/'.$_FILES['monfichier']['name']);
-							$unControleur->uploadVideo($_POST['nom'],$_SESSION['id'],$_FILES['monfichier']['name']);
+							$unControleur->uploadVideo($_POST['nom'],$_POST['description'],$_SESSION['id'],$_FILES['monfichier']['name']);
 						}
 
 						//} else {$error ='Veuillez choisir un fichier avec une extension dans la liste suivante : jpg, mpeg, gif, avi, mgp, m4v, m4p, mov, mkv.';}

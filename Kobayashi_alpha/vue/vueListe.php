@@ -6,30 +6,27 @@
 		<div class="container">
 		<table class ="table">
 		<tr>
-			<th>ID</th>
 			<th>Nom</th>
-			<th>Chemin</th>
+			<th>Description</th>
 			<th>Auteur </th>
 			<th>Nombre de vues</th>
 			<th>Date d'upload</th>
-			<th>Heure d'upload</th>
+
 		</tr>
 <?php 
 		//parcours des resultats avec foreach
 		foreach ($resultatsVideo as $unResultat) 
 		{
 			echo "<tr>
-					<td>".$unResultat['vidID']." </td>
 					<td><a href='watch.php?id=".$unResultat['vidID']."'>".$unResultat['vidNom']." </a></td>
-					<td>".$unResultat['vidChemin']."</td>
+					<td>".$unResultat['vidDescription']."</td>
 					<td>".$unResultat['vidAutorID']. "</td>
 					<td>".$unResultat['vidVues']. "</td>
 					<td>".$unResultat['vidDate']. "</td>
-					<td>".$unResultat['vidHour']. "</td>
 				</tr>";
-			
+
 		}
-		
+		//<td>".$unControleur->recupID($unResultat['vidAutorID']). "</td>
 ?>
 			</table>
 			</div>
