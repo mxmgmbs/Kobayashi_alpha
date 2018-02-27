@@ -5,6 +5,7 @@
 	include ("header.php");
 	include ("controleur/controleur.php");
 	include ("controleur/comment.class.php");
+	include ("controleur/user.class.php");
 	include ("settings.php");
 
 ?>

@@ -15,8 +15,9 @@
             <h1><a href="index.php">Kobayashi</a></h1>
         	<h2>version alpha</h2></br></br>
         		<?php
-        		if(isset($_SESSION['nom'])){
+        		if(isset($_SESSION['id'])){
         			print('<div><a href="profil.php">'.$_SESSION['nom'].'</a></div>');
+        			print('<div><a href="ajoutVideo.php"> Ajouter une Video</a></div>');
         		}
         		
         		if(!isset($_SESSION['id'])){

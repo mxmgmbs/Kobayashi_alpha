@@ -27,7 +27,13 @@
 			public function selectWhere ($tab, $where) {
 				return $this->unModele->selectWhere($tab, $where);
 			}
-			
+			public function uploadVideo ($nom, $id,$name) {
+				return $this->unModele-> uploadVideo($nom, $id,$name);
+			}
+
+			public function afficherNomUser($id){
+				return $this->unModele->afficherNomUser($id);
+			}
 			
 			public function insert($unUser)
 			{
