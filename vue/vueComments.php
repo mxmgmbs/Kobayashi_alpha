@@ -11,11 +11,10 @@
 		{
 			//var_dump($unResultat['vidChemin']);
 			echo "
-					<p>".$unResultat['comID']."</p><br>
 					<p>".$unResultat['comContent']."</p>
 					<p>".$unResultat['comDate']."</p>
 					<p>".$unResultat['comHour']. "</p>
-					<p>".$unResultat['comAutorID']."</p>"
+					<p>".$unResultat['comAutorName']."</p>"
 				;
 		}		
 
