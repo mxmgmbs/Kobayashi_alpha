@@ -56,10 +56,23 @@ CREATE TABLE comment(
 	comHour time,
 	comAutorID int,
 	comVideoID int,
+	comAutorName varchar(30),
 
 	foreign key (comAutorID) references user(usrID),
 	foreign key (comVideoID) references video(vidID)
 );
+
+DROP TRIGGER IF exists ajout_Nom_User_Comment;
+delimiter //
+CREATE TRIGGER ajout_Nom_User_Comment 
+before insert on comment
+for each row
+begin
+declare nom varchar(30);
+select usrNom into nom from user where usrID = new.comAutorID;
+set new.comAutorName = nom ;
+END //
+delimiter ;
 
 INSERT INTO comment (comContent, comDate, comHour, comAutorID, comVideoID)
 	VALUES
